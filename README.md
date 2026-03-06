@@ -14,6 +14,31 @@ Whether you're a startup finding your feet or an established corporate firm need
 
 ---
 
+## What I Do
+
+**Frontend Development**
+Pixel-perfect, performant UIs built with React, Next.js, TypeScript, and modern CSS. Responsive, accessible, and built to scale.
+
+**Backend Development**
+Robust APIs, microservices, and server-side logic. Node.js, Python, REST, GraphQL, WebSockets — architected properly from the start.
+
+**Database Design & Architecture**
+Relational and non-relational — PostgreSQL, MySQL, MongoDB, Redis. Schema design, query optimisation, migrations, and data modelling done right.
+
+**Complex Server & Infrastructure**
+Cloud infrastructure on AWS, GCP, and Azure. Docker, Kubernetes, CI/CD pipelines, serverless functions, reverse proxies, and production-grade DevOps.
+
+**AI Integration & Automation**
+Practical AI implementation — LLM integration, workflow automation, intelligent data pipelines, and building AI-powered features into real products. Not hype. Actual shipping.
+
+**Systems Architecture**
+Designing systems that don't fall over. Scalable, maintainable, and built with the long term in mind — whether it's a greenfield product or a legacy codebase needing modernisation.
+
+**Technical Strategy & Futurism**
+Advising on the right technology choices today to avoid expensive rewrites tomorrow. Staying ahead of the curve so your business doesn't get left behind.
+
+---
+
 ## What I Bring
 
 - **14 years of full stack experience** across a wide range of technologies, systems, and industries
@@ -42,4 +67,4 @@ Startups, SMEs, and established firms welcome.
 
 ---
 
-*Built by Joe — Techpreneur, Developer, Builder.*
+*Built by Joe — Techpreneur, Full Stack Developer.*
