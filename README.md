@@ -55,7 +55,7 @@ Hiring a single mid-senior developer in London costs upwards of £60–80k per y
 
 Working with me, you get a proven full stack developer **plus a capable dev team**, structured around your needs — without the permanent headcount, the recruitment fees, or the management overhead.
 
-**Save £££. Ship faster. Build smarter.**
+**Save £££. Move faster. Build smarter.**
 
 ---
 
