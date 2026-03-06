@@ -34,18 +34,6 @@ Working with me, you get a proven full stack developer **plus a capable dev team
 
 ---
 
-## Tech Stack (This Portfolio)
-
-```
-Next.js 16     React 19     TypeScript 5
-Tailwind CSS 4     GSAP 3 (ScrollTrigger)     Lucide React
-pnpm     Netlify
-```
-
-Built lean — no bloat, no unnecessary dependencies. Clean, performant, modern web.
-
----
-
 ## Based in London. Working globally.
 
 Available for contracts, technical partnerships, and long-term engagements.
