@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TechpreneurJoe — Portfolio
 
-## Getting Started
+> Full Stack Developer. Technical Partner. London-based. 14 years in the field.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Who is Joe?
+
+I'm a London-based full stack developer and techpreneur with 14 years of hands-on experience across the full spectrum of IT — from low-level systems and infrastructure to modern web applications, cloud architecture, and product engineering.
+
+I don't just write code. I build businesses.
+
+Whether you're a startup finding your feet or an established corporate firm needing serious technical firepower — I've worked across both ends of that spectrum and everything in between.
+
+---
+
+## What I Bring
+
+- **14 years of full stack experience** across a wide range of technologies, systems, and industries
+- **A dev team, included** — you get me and the team behind me. No need to hire in-house, no bloated agency retainers, no hundreds of thousands wasted on overhead
+- **Face-to-face, personal engagement** — I work directly with founders, SMEs, and local London businesses. Real conversations, real solutions
+- **Technical partnership** — I don't just deliver a product and disappear. I embed, I advise, I build alongside you
+- **Startup to corporate** — scaled products from zero to production, and integrated into large enterprise systems equally comfortably
+
+---
+
+## What I Save You
+
+Hiring a single mid-senior developer in London costs upwards of £60–80k per year. A team? Multiples of that.
+
+Working with me, you get a proven full stack developer **plus a capable dev team**, structured around your needs — without the permanent headcount, the recruitment fees, or the management overhead.
+
+**Save £££. Ship faster. Build smarter.**
+
+---
+
+## Tech Stack (This Portfolio)
+
+```
+Next.js 16     React 19     TypeScript 5
+Tailwind CSS 4     GSAP 3 (ScrollTrigger)     Lucide React
+pnpm     Netlify
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Built lean — no bloat, no unnecessary dependencies. Clean, performant, modern web.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Based in London. Working globally.
 
-## Learn More
+Available for contracts, technical partnerships, and long-term engagements.
 
-To learn more about Next.js, take a look at the following resources:
+Startups, SMEs, and established firms welcome.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*Built by Joe — Techpreneur, Developer, Builder.*
