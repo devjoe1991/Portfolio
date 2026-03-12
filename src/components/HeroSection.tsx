@@ -269,7 +269,6 @@ export default function HeroSection() {
           {/* Camber Co */}
           <div className="flex-shrink-0 snap-center flex items-center gap-0">
             <CamberCoLogo className="opacity-75" />
-            <div className="flex-shrink-0 w-px h-10 bg-white/10 mx-8" />
           </div>
 
           {/* Camber Co — last item, no trailing divider */}
