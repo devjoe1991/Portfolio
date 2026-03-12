@@ -187,13 +187,14 @@ export default function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex w-full flex-col items-center bg-[#0a0a0a] overflow-hidden"
+      className="relative flex w-full flex-col items-center overflow-hidden"
+      style={{ background: "var(--background)" }}
     >
       {/* Subtle dot grid */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.06] z-0"
         style={{
-          backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, var(--dot-color) 1px, transparent 1px)",
           backgroundSize: "40px 40px",
         }}
       />
@@ -208,7 +209,7 @@ export default function HeroSection() {
           className="object-cover object-center pointer-events-none select-none"
         />
         {/* Fade to bg at bottom */}
-        <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-b from-transparent to-[#0a0a0a]" />
+        <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-b from-transparent to-background" />
       </div>
 
       {/* Title + subtitle stacked below photo */}
@@ -223,7 +224,7 @@ export default function HeroSection() {
         {/* TechpreneurJoe */}
         {renderLine(
           "TechpreneurJoe",
-          "font-sans text-white font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight",
+          "font-sans font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-foreground",
           "flex flex-wrap justify-center"
         )}
 
@@ -250,7 +251,7 @@ export default function HeroSection() {
       </div>
 
       {/* Logos carousel */}
-      <div className="relative z-10 w-full pt-3 pb-1 border-t border-white/[0.06] bg-[#0a0a0a]">
+      <div className="relative z-10 w-full pt-3 pb-1 border-t" style={{ background: "var(--background)", borderColor: "var(--border)" }}>
         <p className="mb-2 text-center font-mono text-xs uppercase tracking-widest text-zinc-600">
           In Partnership With:
         </p>

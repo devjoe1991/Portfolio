@@ -118,7 +118,7 @@ export default function ProjectsSection() {
   }, []);
 
   return (
-    <section className="w-full bg-[#0a0a0a] pt-2 pb-16 overflow-hidden border-t border-white/[0.06]">
+    <section className="w-full pt-2 pb-16 overflow-hidden border-t" style={{ background: "var(--background)", borderColor: "var(--border)" }}>
       {/* Section header */}
       <div className="px-8 mb-6">
         <p className="mb-6 text-center font-mono text-xs uppercase tracking-widest text-zinc-600">
@@ -135,7 +135,8 @@ export default function ProjectsSection() {
         {WHAT_I_DO.map((project) => (
           <div
             key={project.title}
-            className="flex-shrink-0 snap-start w-72 h-48 rounded-3xl border border-white/[0.08] bg-white/[0.03] p-6 flex flex-col justify-center items-start text-left relative overflow-hidden group transition-colors hover:border-white/[0.16] hover:bg-white/[0.05] select-none"
+            className="flex-shrink-0 snap-start w-72 min-h-48 rounded-3xl p-6 flex flex-col justify-center items-start text-left relative overflow-hidden group transition-colors select-none border"
+            style={{ background: "var(--surface)", borderColor: "var(--border)" }}
           >
             {/* Accent glow in corner */}
             <div
@@ -164,7 +165,7 @@ export default function ProjectsSection() {
               >
                 {project.title}
               </h3>
-              <p className="text-zinc-500 text-xs leading-relaxed line-clamp-2">
+              <p className="text-xs leading-relaxed" style={{ color: "var(--muted)" }}>
                 {project.description}
               </p>
             </div>
