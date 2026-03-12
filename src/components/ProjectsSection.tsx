@@ -1,37 +1,72 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import {
+  Bot,
+  Sparkles,
+  SearchCode,
+  Lightbulb,
+  Code2,
+  Layers,
+  ClipboardList,
+} from "lucide-react";
 
-const PROJECTS = [
+type Service = {
+  title: string;
+  description: string;
+  accent: string;
+  emoji?: string;
+  Icon?: React.ElementType;
+};
+
+const WHAT_I_DO: Service[] = [
   {
-    title: "Project One",
-    description: "A short description of what this project does and the problem it solves.",
-    tags: ["TypeScript", "Next.js", "Tailwind"],
+    title: "Business Automation",
+    description: "End-to-end workflow automation using OpenClaw — connect your tools, eliminate manual tasks, and let your business run itself.",
     accent: "#60a5fa",
+    emoji: "🦞",
   },
   {
-    title: "Project Two",
-    description: "A short description of what this project does and the problem it solves.",
-    tags: ["React", "Node.js", "PostgreSQL"],
+    title: "Bot Automation",
+    description: "Custom bots that handle repetitive tasks across platforms — from data scraping to scheduled jobs and beyond.",
     accent: "#a78bfa",
+    Icon: Bot,
   },
   {
-    title: "Project Three",
-    description: "A short description of what this project does and the problem it solves.",
-    tags: ["Python", "FastAPI", "Redis"],
+    title: "AI Consultations",
+    description: "Improve efficiency and reduce costs by identifying the right AI setups for your business — no fluff, just practical implementation.",
     accent: "#34d399",
+    Icon: Sparkles,
   },
   {
-    title: "Project Four",
-    description: "A short description of what this project does and the problem it solves.",
-    tags: ["Go", "gRPC", "Docker"],
-    accent: "#f472b6",
+    title: "Audits",
+    description: "Deep-dive reviews of your tech stack, processes, or codebase — uncovering gaps, risks, and opportunities for improvement.",
+    accent: "#f87171",
+    Icon: SearchCode,
   },
   {
-    title: "Project Five",
-    description: "A short description of what this project does and the problem it solves.",
-    tags: ["Rust", "WASM", "WebGL"],
+    title: "Tech Consultancy",
+    description: "Strategic technical guidance for founders and teams navigating product decisions, architecture, and scaling challenges.",
     accent: "#fbbf24",
+    Icon: Lightbulb,
+  },
+  {
+    title: "Dev Consultations",
+    description: "1-on-1 coding and developer guidance — unblock yourself, level up your skills, or get expert eyes on your implementation.",
+    accent: "#38bdf8",
+    Icon: Code2,
+  },
+  {
+    title: "Full Stack Projects",
+    description: "End-to-end product builds from design to deployment — web apps, APIs, dashboards, and everything in between.",
+    accent: "#f472b6",
+    Icon: Layers,
+  },
+  {
+    title: "Project Management",
+    description: "Technical project management for dev teams — roadmaps, sprint planning, stakeholder comms, and delivery oversight.",
+    accent: "#4ade80",
+    Icon: ClipboardList,
   },
 ];
 
@@ -83,11 +118,11 @@ export default function ProjectsSection() {
   }, []);
 
   return (
-    <section className="w-full bg-[#0a0a0a] py-16 overflow-hidden">
+    <section className="w-full bg-[#0a0a0a] pt-2 pb-16 overflow-hidden border-t border-white/[0.06]">
       {/* Section header */}
       <div className="px-8 mb-6">
         <p className="mb-6 text-center font-mono text-xs uppercase tracking-widest text-zinc-600">
-          Projects
+          What I Do
         </p>
       </div>
 
@@ -97,10 +132,10 @@ export default function ProjectsSection() {
         className="flex gap-4 overflow-x-auto scrollbar-none px-8 pb-4 snap-x snap-mandatory"
         style={{ WebkitOverflowScrolling: "touch" }}
       >
-        {PROJECTS.map((project) => (
+        {WHAT_I_DO.map((project) => (
           <div
             key={project.title}
-            className="flex-shrink-0 snap-start w-72 h-48 rounded-3xl border border-white/[0.08] bg-white/[0.03] p-6 flex flex-col justify-between relative overflow-hidden group transition-colors hover:border-white/[0.16] hover:bg-white/[0.05] select-none"
+            className="flex-shrink-0 snap-start w-72 h-48 rounded-3xl border border-white/[0.08] bg-white/[0.03] p-6 flex flex-col justify-center items-start text-left relative overflow-hidden group transition-colors hover:border-white/[0.16] hover:bg-white/[0.05] select-none"
           >
             {/* Accent glow in corner */}
             <div
@@ -108,17 +143,18 @@ export default function ProjectsSection() {
               style={{ background: project.accent }}
             />
 
-            {/* Tags */}
-            <div className="flex flex-wrap gap-1.5 relative z-10">
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="font-mono text-[10px] px-2 py-0.5 rounded-full border border-white/10 text-zinc-500"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+            {/* Large icon — right side, vertically centered */}
+            {project.emoji && (
+              <span className="pointer-events-none absolute right-[-10px] top-1/2 -translate-y-1/2 text-[8rem] opacity-20 group-hover:opacity-30 transition-opacity select-none">
+                {project.emoji}
+              </span>
+            )}
+            {project.Icon && (
+              <project.Icon
+                className="pointer-events-none absolute right-[-16px] top-1/2 -translate-y-1/2 opacity-10 group-hover:opacity-20 transition-opacity"
+                style={{ color: project.accent, width: 128, height: 128 }}
+              />
+            )}
 
             {/* Title + description */}
             <div className="relative z-10">

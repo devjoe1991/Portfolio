@@ -12,8 +12,8 @@ const figtree = Figtree({ subsets: ["latin"] });
 function CamberCoLogo({ className }: { className?: string }) {
   return (
     <div className={`flex flex-col items-center leading-none ${className}`}>
-      <span className={`${instrumentSerif.className} text-white text-2xl tracking-wide`}>Camber</span>
-      <span className={`${figtree.className} text-zinc-400 text-xs tracking-[0.25em] uppercase`}>Co</span>
+      <span className={`${instrumentSerif.className} text-white text-lg tracking-wide`}>Camber</span>
+      <span className={`${figtree.className} text-zinc-400 text-[10px] tracking-[0.25em] uppercase`}>Co</span>
     </div>
   );
 }
@@ -88,7 +88,7 @@ export default function HeroSection() {
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: "+=250%",
+          end: "+=120%",
           pin: true,
           scrub: 1.2,
           anticipatePin: 1,
@@ -250,8 +250,8 @@ export default function HeroSection() {
       </div>
 
       {/* Logos carousel */}
-      <div className="relative z-10 w-full pt-8 pb-10 border-t border-white/[0.06] bg-[#0a0a0a]">
-        <p className="mb-6 text-center font-mono text-xs uppercase tracking-widest text-zinc-600">
+      <div className="relative z-10 w-full pt-3 pb-1 border-t border-white/[0.06] bg-[#0a0a0a]">
+        <p className="mb-2 text-center font-mono text-xs uppercase tracking-widest text-zinc-600">
           In Partnership With:
         </p>
         <div
@@ -260,10 +260,10 @@ export default function HeroSection() {
         >
           {/* Lyjo Tech Ltd */}
           <div className="flex-shrink-0 snap-center flex items-center gap-0">
-            <div className="w-36 h-36 relative grayscale opacity-75">
+            <div className="w-20 h-20 relative grayscale opacity-75">
               <Image src="/lyjotechltd.png" alt="Lyjo Tech Ltd" fill className="object-contain" />
             </div>
-            <div className="flex-shrink-0 w-px h-10 bg-white/10 mx-8" />
+            <div className="flex-shrink-0 w-px h-6 bg-white/10 mx-5" />
           </div>
 
           {/* Camber Co */}
