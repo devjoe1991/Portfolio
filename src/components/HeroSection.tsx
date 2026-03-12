@@ -1,7 +1,23 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
+import { Instrument_Serif, Figtree } from "next/font/google";
 import gsap from "gsap";
+
+const instrumentSerif = Instrument_Serif({ weight: "400", subsets: ["latin"] });
+const figtree = Figtree({ subsets: ["latin"] });
+
+
+function CamberCoLogo({ className }: { className?: string }) {
+  return (
+    <div className={`flex flex-col items-center leading-none ${className}`}>
+      <span className={`${instrumentSerif.className} text-white text-2xl tracking-wide`}>Camber</span>
+      <span className={`${figtree.className} text-zinc-400 text-xs tracking-[0.25em] uppercase`}>Co</span>
+    </div>
+  );
+}
+
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -171,19 +187,32 @@ export default function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-[#0a0a0a]"
+      className="relative flex w-full flex-col items-center bg-[#0a0a0a] overflow-hidden"
     >
       {/* Subtle dot grid */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.06]"
+        className="pointer-events-none absolute inset-0 opacity-[0.06] z-0"
         style={{
           backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)",
           backgroundSize: "40px 40px",
         }}
       />
 
-      {/* Title — all chars are individually tracked particles */}
-      <div className="relative z-10 flex flex-col items-center gap-3 px-4 text-center">
+      {/* Cover photo with bottom fade — takes up top portion */}
+      <div className="relative w-full h-[52vw] max-h-[420px] sm:h-[380px] sm:max-h-[520px] flex-shrink-0 z-0">
+        <Image
+          src="/techpreneurjoe.jpg"
+          alt="Joe"
+          fill
+          priority
+          className="object-cover object-center pointer-events-none select-none"
+        />
+        {/* Fade to bg at bottom */}
+        <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-b from-transparent to-[#0a0a0a]" />
+      </div>
+
+      {/* Title + subtitle stacked below photo */}
+      <div className="relative z-10 flex flex-col items-center gap-3 px-4 text-center -mt-16 sm:-mt-20">
         {/* <Welcome to> */}
         {renderLine(
           "<Welcome to>",
@@ -209,7 +238,7 @@ export default function HeroSection() {
       {/* Subtitle + scroll cue */}
       <div
         ref={subtitleRef}
-        className="relative z-10 mt-10 flex flex-col items-center gap-3 px-6 text-center"
+        className="relative z-10 mt-6 flex flex-col items-center gap-3 px-6 text-center"
       >
         <p className="max-w-sm text-base font-medium text-zinc-400 sm:max-w-md sm:text-lg md:text-xl">
           Real developer.&nbsp;&nbsp;Real builder.&nbsp;&nbsp;Real interaction.
@@ -218,6 +247,34 @@ export default function HeroSection() {
           // scroll to explore
         </p>
         <div className="mt-4 h-12 w-px animate-pulse bg-gradient-to-b from-transparent via-zinc-500 to-transparent sm:h-16" />
+      </div>
+
+      {/* Logos carousel */}
+      <div className="relative z-10 w-full pt-8 pb-10 border-t border-white/[0.06] bg-[#0a0a0a]">
+        <p className="mb-6 text-center font-mono text-xs uppercase tracking-widest text-zinc-600">
+          In Partnership With:
+        </p>
+        <div
+          className="flex items-center justify-center gap-0 overflow-x-auto snap-x snap-mandatory scrollbar-none px-8"
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
+          {/* Lyjo Tech Ltd */}
+          <div className="flex-shrink-0 snap-center flex items-center gap-0">
+            <div className="w-36 h-36 relative grayscale opacity-75">
+              <Image src="/lyjotechltd.png" alt="Lyjo Tech Ltd" fill className="object-contain" />
+            </div>
+            <div className="flex-shrink-0 w-px h-10 bg-white/10 mx-8" />
+          </div>
+
+          {/* Camber Co */}
+          <div className="flex-shrink-0 snap-center flex items-center gap-0">
+            <CamberCoLogo className="opacity-75" />
+            <div className="flex-shrink-0 w-px h-10 bg-white/10 mx-8" />
+          </div>
+
+          {/* Camber Co — last item, no trailing divider */}
+
+        </div>
       </div>
     </section>
   );
