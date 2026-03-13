@@ -30,12 +30,12 @@ export default function Header() {
         borderColor: "var(--header-border)",
       }}
     >
-      <span className="font-mono text-sm font-semibold tracking-tight" style={{ color: "var(--foreground)" }}>
+      <span className="font-sans text-base font-bold tracking-tight" style={{ color: "var(--foreground)" }}>
         joe<span style={{ color: "var(--accent)" }}>.</span>
       </span>
 
       <div className="flex items-center gap-3">
-        <span className="font-mono text-xs" style={{ color: "var(--muted)" }}>
+        <span className="font-sans text-sm" style={{ color: "var(--muted)" }}>
           @techpreneurjoe
         </span>
         <button

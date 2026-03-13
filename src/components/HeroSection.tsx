@@ -122,7 +122,7 @@ export default function HeroSection() {
             onStart() {
               el.textContent = codeChar;
               el.style.color = color;
-              el.style.fontFamily = "var(--font-geist-mono), monospace";
+              el.style.fontFamily = "var(--font-roboto), system-ui, sans-serif";
               el.style.fontWeight = "600";
             },
             // Restore original letter on reverse
@@ -218,21 +218,21 @@ export default function HeroSection() {
         {/* <Welcome to> */}
         {renderLine(
           "<Welcome to>",
-          "font-mono text-accent text-base sm:text-xl md:text-2xl font-medium",
+          "font-sans text-accent text-lg sm:text-2xl md:text-3xl font-bold",
           "flex flex-wrap justify-center"
         )}
 
         {/* TechpreneurJoe */}
         {renderLine(
           "TechpreneurJoe",
-          "font-sans font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-foreground",
+          "font-sans font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-foreground",
           "flex flex-wrap justify-center"
         )}
 
         {/* Portfolio */}
         {renderLine(
           "Portfolio",
-          "font-mono text-accent-secondary text-xl sm:text-3xl md:text-4xl font-semibold",
+          "font-sans text-accent-secondary text-2xl sm:text-4xl md:text-5xl font-bold",
           "flex flex-wrap justify-center"
         )}
       </div>
@@ -242,10 +242,10 @@ export default function HeroSection() {
         ref={subtitleRef}
         className="relative z-10 mt-6 flex flex-col items-center gap-3 px-6 text-center"
       >
-        <p className="max-w-sm text-base font-medium sm:max-w-md sm:text-lg md:text-xl" style={{ color: "var(--muted)" }}>
+        <p className="max-w-sm text-lg font-medium sm:max-w-md sm:text-xl md:text-2xl" style={{ color: "var(--muted)" }}>
           Real developer.&nbsp;&nbsp;Real builder.&nbsp;&nbsp;Real interaction.
         </p>
-        <p className="font-mono text-xs sm:text-sm" style={{ color: "var(--muted)" }}>
+        <p className="font-mono text-sm sm:text-base" style={{ color: "var(--muted)" }}>
           // scroll to explore
         </p>
         <div className="mt-4 h-12 w-px animate-pulse bg-gradient-to-b from-transparent via-muted to-transparent sm:h-16" />
@@ -253,7 +253,7 @@ export default function HeroSection() {
 
       {/* Logos carousel */}
       <div className="relative z-10 w-full pt-3 pb-1 border-t" style={{ background: "var(--background)", borderColor: "var(--border)" }}>
-        <p className="mb-2 text-center font-mono text-xs uppercase tracking-widest" style={{ color: "var(--muted)" }}>
+        <p className="mb-2 text-center font-sans font-bold text-sm uppercase tracking-widest" style={{ color: "var(--muted)" }}>
           In Partnership With:
         </p>
         <div

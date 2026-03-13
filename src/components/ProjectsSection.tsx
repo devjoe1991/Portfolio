@@ -138,7 +138,7 @@ export default function ProjectsSection() {
           borderColor: "var(--border)",
         }}
       >
-        <p className="text-center font-mono text-xs uppercase tracking-widest" style={{ color: "var(--muted)" }}>
+        <p className="text-center font-sans font-bold text-sm uppercase tracking-widest" style={{ color: "var(--muted)" }}>
           What I Do
         </p>
       </div>
@@ -146,8 +146,8 @@ export default function ProjectsSection() {
       {/* Scrollable track */}
       <div
         ref={trackRef}
-        className="flex gap-4 overflow-x-auto scrollbar-none px-8 pb-4 snap-x snap-mandatory"
-        style={{ WebkitOverflowScrolling: "touch" }}
+        className="flex gap-4 overflow-x-auto scrollbar-none pb-4 snap-x snap-mandatory"
+        style={{ WebkitOverflowScrolling: "touch", scrollPaddingLeft: "1rem", paddingLeft: "1rem" }}
       >
         {WHAT_I_DO.map((project) => (
           <div
@@ -183,12 +183,12 @@ export default function ProjectsSection() {
             {/* Title + description */}
             <div className="relative z-10">
               <h3
-                className="font-semibold text-base mb-1"
+                className="font-bold text-lg mb-1"
                 style={{ color: project.accent }}
               >
                 {project.title}
               </h3>
-              <p className="text-xs leading-relaxed" style={{ color: "var(--muted)" }}>
+              <p className="text-sm leading-relaxed" style={{ color: "var(--muted)" }}>
                 {project.description}
               </p>
             </div>

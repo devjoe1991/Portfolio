@@ -54,7 +54,7 @@ export default function TabBar() {
             style={{ color: active ? "var(--accent)" : "var(--muted)" }}
           >
             {icon(active)}
-            <span className="font-mono text-[10px] tracking-wide">
+            <span className="font-sans text-xs tracking-wide">
               {label}
             </span>
           </Link>

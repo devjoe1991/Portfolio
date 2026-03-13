@@ -16,7 +16,7 @@ export default function LogosSection() {
 
   return (
     <section className="w-full bg-[#0a0a0a] py-12 border-t border-white/[0.06]">
-      <p className="mb-8 text-center font-mono text-xs uppercase tracking-widest text-zinc-600">
+      <p className="mb-8 text-center font-sans font-bold text-xs uppercase tracking-widest text-zinc-600">
         built &amp; shipped with
       </p>
 
