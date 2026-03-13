@@ -11,6 +11,7 @@ type Project = {
   status?: "live" | "in progress" | "archived";
   url?: string;
   cardBg?: string;
+  cardGradient?: string;
   darkText?: boolean;
 };
 
@@ -63,13 +64,12 @@ const PROJECTS: Project[] = [
     status: "in progress",
   },
   {
-    title: "OpenClaw",
-    description: "End-to-end business automation platform — connect your tools, eliminate manual tasks, and let your business run itself.",
-    tags: ["Next.js", "Node.js", "Automation", "SaaS"],
+    title: "Business Automation Systems",
+    description: "I've automated entire businesses end-to-end — connecting their tools, eliminating manual processes, and letting their operations run on autopilot. From CRM workflows and invoice chasing to multi-platform notifications and scheduled reporting, I've built it all.",
+    tags: ["Next.js", "Node.js", "Automation", "SaaS", "WhatsApp", "Discord", "Telegram"],
     accent: "#ffffff",
     Icon: Zap,
-    status: "live",
-    cardBg: "#4f46e5",
+    cardGradient: "linear-gradient(135deg, #1c1c2e 0%, #3d1515 60%, #6b2020 100%)",
   },
 ];
 
@@ -113,8 +113,8 @@ export default function WorkSection() {
             key={project.title}
             className="w-full rounded-3xl p-6 flex items-center gap-5 relative overflow-hidden group transition-all duration-200 border hover:-translate-y-0.5"
             style={{
-              background: project.cardBg ?? "var(--surface)",
-              borderColor: project.cardBg ? "transparent" : "var(--border)",
+              background: project.cardGradient ?? project.cardBg ?? "var(--surface)",
+              borderColor: (project.cardBg || project.cardGradient) ? "transparent" : "var(--border)",
               boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
             }}
             onMouseEnter={(e) =>
@@ -143,7 +143,7 @@ export default function WorkSection() {
               <div className="flex items-center gap-2 mb-1 flex-wrap">
                 <h3
                   className="font-semibold text-base"
-                  style={{ color: project.cardBg ? project.accent : "var(--foreground)" }}
+                  style={{ color: (project.cardBg || project.cardGradient) ? project.accent : "var(--foreground)" }}
                 >
                   {project.title}
                 </h3>
@@ -155,7 +155,7 @@ export default function WorkSection() {
                   </span>
                 )}
               </div>
-              <p className="text-xs leading-relaxed mb-3" style={{ color: project.cardBg ? (project.darkText ? "rgba(0,0,0,0.55)" : "rgba(255,255,255,0.75)") : "var(--muted)" }}>
+              <p className="text-xs leading-relaxed mb-3" style={{ color: (project.cardBg || project.cardGradient) ? (project.darkText ? "rgba(0,0,0,0.55)" : "rgba(255,255,255,0.75)") : "var(--muted)" }}>
                 {project.description}
               </p>
               <div className="flex flex-wrap gap-1.5">
@@ -164,8 +164,8 @@ export default function WorkSection() {
                     key={tag}
                     className="font-mono text-[10px] px-2 py-0.5 rounded-full border"
                     style={{
-                      color: project.cardBg ? project.accent : "var(--muted)",
-                      borderColor: project.cardBg ? `${project.accent}55` : "var(--border)",
+                      color: (project.cardBg || project.cardGradient) ? project.accent : "var(--muted)",
+                      borderColor: (project.cardBg || project.cardGradient) ? `${project.accent}55` : "var(--border)",
                     }}
                   >
                     {tag}
