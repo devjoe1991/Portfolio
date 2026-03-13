@@ -189,7 +189,7 @@ export default function HeroSection() {
     <section
       ref={sectionRef}
       className="relative flex w-full flex-col items-center overflow-hidden"
-      style={{ background: "var(--background)" }}
+      style={{ background: "var(--background)", zIndex: 0 }}
     >
       {/* Subtle dot grid */}
       <div

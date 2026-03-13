@@ -82,15 +82,26 @@ const STATUS_STYLES: Record<string, string> = {
 export default function WorkSection() {
   return (
     <section
-      className="w-full pt-2 pb-16 border-t"
-      style={{ background: "var(--background)", borderColor: "var(--border)" }}
+      className="w-full pb-16 border-t relative"
+      style={{
+        background: "var(--bg-frosted)",
+        backdropFilter: "blur(20px) saturate(150%)",
+        WebkitBackdropFilter: "blur(20px) saturate(150%)",
+        borderColor: "var(--border)",
+        zIndex: 10,
+      }}
     >
-      {/* Section header */}
-      <div className="px-6 mb-6">
-        <p
-          className="mb-6 text-center font-mono text-xs uppercase tracking-widest"
-          style={{ color: "var(--muted)" }}
-        >
+      {/* Sticky section title */}
+      <div
+        className="sticky top-[57px] z-20 px-6 py-2 border-b mb-4"
+        style={{
+          background: "var(--bg-frosted)",
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+          borderColor: "var(--border)",
+        }}
+      >
+        <p className="text-center font-mono text-xs uppercase tracking-widest" style={{ color: "var(--muted)" }}>
           My Projects
         </p>
       </div>
