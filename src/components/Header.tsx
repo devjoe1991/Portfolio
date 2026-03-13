@@ -19,6 +19,7 @@ export default function Header() {
     setTheme(next);
   }
 
+  const nextTheme = MODES[(MODES.indexOf(theme) + 1) % MODES.length];
   const Icon = icons[theme];
 
   return (
@@ -30,7 +31,7 @@ export default function Header() {
       }}
     >
       <span className="font-mono text-sm font-semibold tracking-tight" style={{ color: "var(--foreground)" }}>
-        joe<span className="text-[#60a5fa]">.</span>
+        joe<span style={{ color: "var(--accent)" }}>.</span>
       </span>
 
       <div className="flex items-center gap-3">
@@ -39,7 +40,8 @@ export default function Header() {
         </span>
         <button
           onClick={cycleTheme}
-          aria-label={`Switch theme (current: ${theme})`}
+          aria-label={`Switch to ${nextTheme} mode`}
+          title={`Switch to ${nextTheme} mode`}
           className="flex items-center justify-center w-7 h-7 rounded-full border transition-colors hover:opacity-70"
           style={{
             borderColor: "var(--border)",

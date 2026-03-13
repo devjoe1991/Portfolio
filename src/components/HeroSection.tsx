@@ -12,8 +12,8 @@ const figtree = Figtree({ subsets: ["latin"] });
 function CamberCoLogo({ className }: { className?: string }) {
   return (
     <div className={`flex flex-col items-center leading-none ${className}`}>
-      <span className={`${instrumentSerif.className} text-white text-lg tracking-wide`}>Camber</span>
-      <span className={`${figtree.className} text-zinc-400 text-[10px] tracking-[0.25em] uppercase`}>Co</span>
+      <span className={`${instrumentSerif.className} text-lg tracking-wide`} style={{ color: "var(--foreground)" }}>Camber</span>
+      <span className={`${figtree.className} text-[10px] tracking-[0.25em] uppercase`} style={{ color: "var(--muted)" }}>Co</span>
     </div>
   );
 }
@@ -90,6 +90,7 @@ export default function HeroSection() {
           start: "top top",
           end: "+=120%",
           pin: true,
+          pinSpacing: false,
           scrub: 1.2,
           anticipatePin: 1,
         },
@@ -209,7 +210,7 @@ export default function HeroSection() {
           className="object-cover object-center pointer-events-none select-none"
         />
         {/* Fade to bg at bottom */}
-        <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-b from-transparent to-background" />
+        <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-b from-transparent via-transparent to-background" />
       </div>
 
       {/* Title + subtitle stacked below photo */}
@@ -217,7 +218,7 @@ export default function HeroSection() {
         {/* <Welcome to> */}
         {renderLine(
           "<Welcome to>",
-          "font-mono text-[#60a5fa] text-base sm:text-xl md:text-2xl font-medium",
+          "font-mono text-accent text-base sm:text-xl md:text-2xl font-medium",
           "flex flex-wrap justify-center"
         )}
 
@@ -231,7 +232,7 @@ export default function HeroSection() {
         {/* Portfolio */}
         {renderLine(
           "Portfolio",
-          "font-mono text-[#a78bfa] text-xl sm:text-3xl md:text-4xl font-semibold",
+          "font-mono text-accent-secondary text-xl sm:text-3xl md:text-4xl font-semibold",
           "flex flex-wrap justify-center"
         )}
       </div>
@@ -241,18 +242,18 @@ export default function HeroSection() {
         ref={subtitleRef}
         className="relative z-10 mt-6 flex flex-col items-center gap-3 px-6 text-center"
       >
-        <p className="max-w-sm text-base font-medium text-zinc-400 sm:max-w-md sm:text-lg md:text-xl">
+        <p className="max-w-sm text-base font-medium sm:max-w-md sm:text-lg md:text-xl" style={{ color: "var(--muted)" }}>
           Real developer.&nbsp;&nbsp;Real builder.&nbsp;&nbsp;Real interaction.
         </p>
-        <p className="font-mono text-xs text-zinc-600 sm:text-sm">
+        <p className="font-mono text-xs sm:text-sm" style={{ color: "var(--muted)" }}>
           // scroll to explore
         </p>
-        <div className="mt-4 h-12 w-px animate-pulse bg-gradient-to-b from-transparent via-zinc-500 to-transparent sm:h-16" />
+        <div className="mt-4 h-12 w-px animate-pulse bg-gradient-to-b from-transparent via-muted to-transparent sm:h-16" />
       </div>
 
       {/* Logos carousel */}
       <div className="relative z-10 w-full pt-3 pb-1 border-t" style={{ background: "var(--background)", borderColor: "var(--border)" }}>
-        <p className="mb-2 text-center font-mono text-xs uppercase tracking-widest text-zinc-600">
+        <p className="mb-2 text-center font-mono text-xs uppercase tracking-widest" style={{ color: "var(--muted)" }}>
           In Partnership With:
         </p>
         <div
@@ -264,7 +265,7 @@ export default function HeroSection() {
             <div className="w-20 h-20 relative grayscale opacity-75">
               <Image src="/lyjotechltd.png" alt="Lyjo Tech Ltd" fill className="object-contain" />
             </div>
-            <div className="flex-shrink-0 w-px h-6 bg-white/10 mx-5" />
+            <div className="flex-shrink-0 w-px h-6 mx-5" style={{ background: "var(--border)" }} />
           </div>
 
           {/* Camber Co */}

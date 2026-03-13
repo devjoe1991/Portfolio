@@ -121,7 +121,7 @@ export default function ProjectsSection() {
     <section className="w-full pt-2 pb-16 overflow-hidden border-t" style={{ background: "var(--background)", borderColor: "var(--border)" }}>
       {/* Section header */}
       <div className="px-8 mb-6">
-        <p className="mb-6 text-center font-mono text-xs uppercase tracking-widest text-zinc-600">
+        <p className="mb-6 text-center font-mono text-xs uppercase tracking-widest" style={{ color: "var(--muted)" }}>
           What I Do
         </p>
       </div>
@@ -135,8 +135,14 @@ export default function ProjectsSection() {
         {WHAT_I_DO.map((project) => (
           <div
             key={project.title}
-            className="flex-shrink-0 snap-start w-72 min-h-48 rounded-3xl p-6 flex flex-col justify-center items-start text-left relative overflow-hidden group transition-colors select-none border"
-            style={{ background: "var(--surface)", borderColor: "var(--border)" }}
+            className="flex-shrink-0 snap-start w-[76vw] max-w-72 min-h-48 rounded-3xl p-6 flex flex-col justify-center items-start text-left relative overflow-hidden group transition-all duration-200 select-none border hover:-translate-y-1"
+            style={{
+              background: "var(--surface)",
+              borderColor: "var(--border)",
+              boxShadow: `0 1px 3px rgba(0,0,0,0.06)`,
+            }}
+            onMouseEnter={e => (e.currentTarget.style.boxShadow = `0 8px 24px ${project.accent}33`)}
+            onMouseLeave={e => (e.currentTarget.style.boxShadow = `0 1px 3px rgba(0,0,0,0.06)`)}
           >
             {/* Accent glow in corner */}
             <div
@@ -160,7 +166,7 @@ export default function ProjectsSection() {
             {/* Title + description */}
             <div className="relative z-10">
               <h3
-                className="text-white font-semibold text-base mb-1"
+                className="font-semibold text-base mb-1"
                 style={{ color: project.accent }}
               >
                 {project.title}

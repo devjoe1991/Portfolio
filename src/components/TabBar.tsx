@@ -40,19 +40,21 @@ export default function TabBar() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 flex items-center justify-around bg-[#0a0a0a]/90 backdrop-blur-md border-t border-white/[0.06] pb-safe">
+    <nav
+      className="fixed bottom-0 left-0 right-0 z-50 flex items-center justify-around backdrop-blur-md border-t pb-safe"
+      style={{ background: "var(--header-bg)", borderColor: "var(--header-border)" }}
+    >
       {TABS.map(({ label, href, icon }) => {
         const active = pathname === href;
         return (
           <Link
             key={href}
             href={href}
-            className={`flex flex-col items-center gap-1 px-6 py-3 transition-colors ${
-              active ? "text-[#60a5fa]" : "text-zinc-500 hover:text-zinc-300"
-            }`}
+            className="flex flex-col items-center gap-1 px-6 py-3 transition-colors"
+            style={{ color: active ? "var(--accent)" : "var(--muted)" }}
           >
             {icon(active)}
-            <span className={`font-mono text-[10px] tracking-wide ${active ? "text-[#60a5fa]" : "text-zinc-500"}`}>
+            <span className="font-mono text-[10px] tracking-wide">
               {label}
             </span>
           </Link>
