@@ -138,7 +138,7 @@ export default function WorkSection() {
                 </h3>
                 {project.status && (
                   <span
-                    className="font-sans text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wide"
+                    className="font-sans text-xs px-2 py-0.5 rounded-full uppercase tracking-wide"
                     style={{
                       background: STATUS_BG[project.status],
                       color: STATUS_COLOR[project.status],
@@ -155,7 +155,7 @@ export default function WorkSection() {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="font-sans text-[10px] px-2 py-0.5 rounded-full border"
+                    className="font-sans text-xs px-2 py-0.5 rounded-full border"
                     style={{
                       color: (project.cardBg || project.cardGradient) ? project.accent : "var(--muted)",
                       borderColor: (project.cardBg || project.cardGradient) ? `${project.accent}55` : "var(--border)",
