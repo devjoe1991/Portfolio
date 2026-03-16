@@ -56,6 +56,20 @@ const PROJECTS: Project[] = [
     status: "in progress",
   },
   {
+    title: "WordPress for Local Business",
+    description: "Long before the fancy frameworks, I was building and maintaining WordPress sites for local businesses and SMEs — locksmiths, plumbers, accountants, electricians, and everyone in between. Fast, SEO-ready, easy to manage. Trades that needed an online presence without the agency price tag. Still do it, still love it.",
+    tags: ["WordPress", "Custom PHP", "SEO", "WooCommerce", "Local Business", "SME"],
+    accent: "#ffffff",
+    cardBg: "#21759b",
+  },
+  {
+    title: "Enterprise Frameworks & Shared APIs",
+    description: "Architecting complex, multi-project systems under a single organisation — shared API layers that serve multiple products, centralised auth, unified data models, and clean service boundaries between apps. Built for teams that need things to scale without falling apart. The kind of work where the architecture decisions made on day one still hold up two years later.",
+    tags: ["REST API", "Monorepo", "Microservices", "TypeScript", "Node.js", "Auth", "Multi-tenant"],
+    accent: "#ffffff",
+    cardGradient: "linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #1e4d8c 100%)",
+  },
+  {
     title: "Business Automation Systems",
     description: "I've automated entire businesses end-to-end — connecting their tools, eliminating manual processes, and letting their operations run on autopilot. From CRM workflows and invoice chasing to multi-platform notifications and scheduled reporting, I've built it all.",
     tags: ["Next.js", "Node.js", "Automation", "SaaS", "WhatsApp", "Discord", "Telegram"],
@@ -76,10 +90,13 @@ const STATUS_COLOR: Record<string, string> = {
   archived: "#a1a1aa",
 };
 
+const CARD_HEIGHT = 300; // fixed height — description scrolls inside
+const STICKY_TOP = 57 + 41; // header + section title bar
+
 export default function WorkSection() {
   return (
     <section
-      className="w-full pb-16 border-t relative"
+      className="w-full border-t relative"
       style={{
         background: "var(--bg-frosted)",
         backdropFilter: "blur(20px) saturate(150%)",
@@ -90,7 +107,7 @@ export default function WorkSection() {
     >
       {/* Sticky section title */}
       <div
-        className="sticky top-[57px] z-20 px-6 py-2 border-b mb-4"
+        className="sticky top-[57px] z-20 px-6 py-2 border-b"
         style={{
           background: "var(--bg-frosted)",
           backdropFilter: "blur(12px)",
@@ -103,71 +120,102 @@ export default function WorkSection() {
         </p>
       </div>
 
-      {/* Stacked cards */}
-      <div className="flex flex-col gap-3 px-6">
-        {PROJECTS.map((project) => (
-          <div
-            key={project.title}
-            className="w-full rounded-3xl p-6 flex items-center gap-5 relative overflow-hidden group transition-all duration-200 border hover:-translate-y-0.5"
-            style={{
-              background: project.cardGradient ?? project.cardBg ?? "var(--surface)",
-              borderColor: (project.cardBg || project.cardGradient) ? "transparent" : "var(--border)",
-              boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
-            }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.boxShadow = `0 8px 24px ${project.accent}33`)
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.06)")
-            }
-          >
-            {/* Accent glow */}
-            <div
-              className="pointer-events-none absolute -top-6 -right-6 w-28 h-28 rounded-full opacity-15 blur-2xl transition-opacity group-hover:opacity-30"
-              style={{ background: project.accent }}
-            />
+      {/* Stacking cards */}
+      <div className="px-4 pt-4" style={{ paddingBottom: `${PROJECTS.length * 120}px` }}>
+        {PROJECTS.map((project, i) => {
+          const stickyTop = STICKY_TOP + i * 8;
 
-            {/* Text */}
-            <div className="relative z-10 flex-1 min-w-0">
-              <div className="flex items-center gap-2 mb-1 flex-wrap">
-                <h3
-                  className="font-bold text-lg"
-                  style={{ color: (project.cardBg || project.cardGradient) ? project.accent : "var(--foreground)" }}
+          return (
+            <div
+              key={project.title}
+              className="sticky"
+              style={{
+                top: stickyTop,
+                zIndex: i + 1,
+                height: CARD_HEIGHT,
+                marginBottom: i < PROJECTS.length - 1 ? 16 : 0,
+              }}
+            >
+              <div
+                className="w-full h-full rounded-3xl p-6 flex flex-col gap-3 relative overflow-hidden group transition-all duration-200 border"
+                style={{
+                  background: project.cardGradient ?? project.cardBg ?? "var(--surface)",
+                  borderColor: (project.cardBg || project.cardGradient) ? "transparent" : "var(--border)",
+                  boxShadow: `0 2px 8px rgba(0,0,0,0.08), 0 ${4 + i * 2}px ${16 + i * 4}px rgba(0,0,0,0.05)`,
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.boxShadow = `0 8px 32px ${project.accent}44`)
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.boxShadow = `0 2px 8px rgba(0,0,0,0.08), 0 ${4 + i * 2}px ${16 + i * 4}px rgba(0,0,0,0.05)`)
+                }
+              >
+                {/* Accent glow */}
+                <div
+                  className="pointer-events-none absolute -top-8 -right-8 w-48 h-48 rounded-full opacity-15 blur-2xl transition-opacity group-hover:opacity-30"
+                  style={{ background: project.accent }}
+                />
+
+                {/* Top: title + status */}
+                {/* Title + status */}
+                <div className="relative z-10 flex-shrink-0">
+                  <div className="flex items-center gap-2 mb-2 flex-wrap">
+                    <h3
+                      className="font-bold text-xl"
+                      style={{ color: (project.cardBg || project.cardGradient) ? project.accent : "var(--foreground)" }}
+                    >
+                      {project.title}
+                    </h3>
+                    {project.status && (
+                      <span
+                        className="font-sans text-xs px-2 py-0.5 rounded-full uppercase tracking-wide"
+                        style={{
+                          background: STATUS_BG[project.status],
+                          color: STATUS_COLOR[project.status],
+                        }}
+                      >
+                        {project.status}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Scrollable description */}
+                <div
+                  className="relative z-10 flex-1 overflow-y-auto scrollbar-none"
+                  style={{ WebkitOverflowScrolling: "touch" }}
                 >
-                  {project.title}
-                </h3>
-                {project.status && (
-                  <span
-                    className="font-sans text-xs px-2 py-0.5 rounded-full uppercase tracking-wide"
+                  <p
+                    className="text-sm leading-relaxed"
                     style={{
-                      background: STATUS_BG[project.status],
-                      color: STATUS_COLOR[project.status],
+                      color: (project.cardBg || project.cardGradient)
+                        ? (project.darkText ? "rgba(0,0,0,0.55)" : "rgba(255,255,255,0.75)")
+                        : "var(--muted)",
                     }}
                   >
-                    {project.status}
-                  </span>
-                )}
-              </div>
-              <p className="text-sm leading-relaxed mb-3" style={{ color: (project.cardBg || project.cardGradient) ? (project.darkText ? "rgba(0,0,0,0.55)" : "rgba(255,255,255,0.75)") : "var(--muted)" }}>
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="font-sans text-xs px-2 py-0.5 rounded-full border"
-                    style={{
-                      color: (project.cardBg || project.cardGradient) ? project.accent : "var(--muted)",
-                      borderColor: (project.cardBg || project.cardGradient) ? `${project.accent}55` : "var(--border)",
-                    }}
-                  >
-                    {tag}
-                  </span>
-                ))}
+                    {project.description}
+                  </p>
+                </div>
+
+                {/* Tags — pinned to bottom */}
+                <div className="relative z-10 flex-shrink-0 flex flex-wrap gap-1.5">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="font-sans text-xs px-2 py-0.5 rounded-full border"
+                      style={{
+                        color: (project.cardBg || project.cardGradient) ? project.accent : "var(--muted)",
+                        borderColor: (project.cardBg || project.cardGradient) ? `${project.accent}55` : "var(--border)",
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
